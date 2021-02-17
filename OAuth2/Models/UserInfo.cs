@@ -27,7 +27,7 @@ namespace OAuth2.Models
     /// <summary>
     /// Contains information about user who is being authenticated.
     /// </summary>
-    public class UserInfo
+    public partial class UserInfo // RAVKA
     {
         /// <summary>
         /// Constructor.
