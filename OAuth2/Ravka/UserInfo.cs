@@ -7,15 +7,19 @@ namespace OAuth2.Models
     /// <summary>
     /// Contains information about user who is being authenticated.
     /// </summary>
-    public partial class UserInfo // 2 : UserInfo
+    public partial class UserInfo // RAVKA VERSION
     {
-        public bool HasUniqueIdentity
+        public bool HasIdOrEmailOrPhone
         {
             get
             {
-                return this.Id.IsNullOrWhiteSpace() == false || this.Email.IsNullOrWhiteSpace() == false;
+                return this.Id.IsNullOrWhiteSpace() == false 
+                    || this.Email.IsNullOrWhiteSpace() == false 
+                    || this.Phone.IsNullOrWhiteSpace() == false;
             }
         }
+
+        public string Raw { get; set; }
         public string Gender { get; set; }
         public string Phone { get; set; }
         public string Birthday { get; set; }

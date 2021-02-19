@@ -223,6 +223,7 @@ namespace OAuth2.Client
 
             var userInfoResult = await QueryUserInfoAsync(cancellationToken).ConfigureAwait(false);
             var result = ParseUserInfo(userInfoResult);
+            result.Raw = userInfoResult;
             result.ProviderName = Name;
 
             return result;

@@ -22,12 +22,26 @@ namespace OAuth2.Models
         /// Uri of large photo.
         /// </summary>
         public string Large { get; set; }
+
+        public string BiggestPicAvailable // RAVKA
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(Large))
+                    return Large;
+                else if (!string.IsNullOrEmpty(Normal))
+                    return Normal;
+                else
+                    return Small;
+
+            }
+        }
     }
 
     /// <summary>
     /// Contains information about user who is being authenticated.
     /// </summary>
-    public partial class UserInfo // RAVKA
+    public partial class UserInfo // ORIGINAL + PARTIAL (RAVKA)
     {
         /// <summary>
         /// Constructor.
@@ -70,7 +84,7 @@ namespace OAuth2.Models
         /// </summary>
         public string PhotoUri
         {
-            get { return AvatarUri.Normal; }
+            get { return AvatarUri.BiggestPicAvailable; } // RAVKA
         }
 
         /// <summary>

@@ -90,6 +90,7 @@ namespace OAuth2.Client.Impl
             var response = await client.ExecuteAndVerifyAsync(request, cancellationToken).ConfigureAwait(false);
 
             var result = ParseUserInfo(response.Content);
+            result.Raw = response.Content;
             result.ProviderName = Name;
 
             return result;
