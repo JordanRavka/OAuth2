@@ -23,19 +23,7 @@ namespace OAuth2.Models
         /// </summary>
         public string Large { get; set; }
 
-        public string BiggestPicAvailable // RAVKA
-        {
-            get
-            {
-                if (!string.IsNullOrEmpty(Large))
-                    return Large;
-                else if (!string.IsNullOrEmpty(Normal))
-                    return Normal;
-                else
-                    return Small;
 
-            }
-        }
     }
 
     /// <summary>
@@ -78,15 +66,15 @@ namespace OAuth2.Models
         /// Last name.
         /// </summary>
         public string LastName { get; set; }
-
+        /*
         /// <summary>
         /// Photo URI.
         /// </summary>
         public string PhotoUri
         {
-            get { return AvatarUri.BiggestPicAvailable; } // RAVKA
+            get { return BiggestPicAvailableUrl; } // RAVKA
         }
-
+        */
         /// <summary>
         /// Contains URIs of different sizes of avatar.
         /// </summary>

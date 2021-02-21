@@ -13,8 +13,8 @@ namespace OAuth2.Models
         {
             get
             {
-                return this.Id.IsNullOrWhiteSpace() == false 
-                    || this.Email.IsNullOrWhiteSpace() == false 
+                return this.Id.IsNullOrWhiteSpace() == false
+                    || this.Email.IsNullOrWhiteSpace() == false
                     || this.Phone.IsNullOrWhiteSpace() == false;
             }
         }
@@ -39,6 +39,30 @@ namespace OAuth2.Models
                     return birthdate;
             }
             return Ravka.Helpers.Dates.SqlMinDate;
+        }
+
+        public string OriginalPicUrl { get; set; }
+
+        public string BiggestPicAvailableUrl // RAVKA
+        {
+            get
+            {
+                if (!string.IsNullOrEmpty(OriginalPicUrl))
+                    return OriginalPicUrl;
+
+                if (AvatarUri != null)
+                {
+                    if (!string.IsNullOrEmpty(AvatarUri.Large))
+                        return AvatarUri.Large;
+                    else if (!string.IsNullOrEmpty(AvatarUri.Normal))
+                        return AvatarUri.Normal;
+                    else
+                        return AvatarUri.Small;
+                }
+                else
+                    return string.Empty;
+
+            }
         }
     }
     public partial class AgeRange

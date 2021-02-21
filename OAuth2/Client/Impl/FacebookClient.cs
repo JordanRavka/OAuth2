@@ -81,7 +81,7 @@ namespace OAuth2.Client.Impl
         protected override UserInfo ParseUserInfo(string content)
         {
             var response = JObject.Parse(content);
-            const string avatarUriTemplate = "{0}?type={1}";
+            const string avatarUriTemplate = "{0}&type={1}"; // RAVKA WAS ? NOW &
             var avatarUri = response["picture"]["data"]["url"].Value<string>();
             return new UserInfo
             {
@@ -93,7 +93,7 @@ namespace OAuth2.Client.Impl
                 {
                     Small = !string.IsNullOrWhiteSpace(avatarUri) ? string.Format(avatarUriTemplate, avatarUri, "small") : string.Empty,
                     Normal = !string.IsNullOrWhiteSpace(avatarUri) ? string.Format(avatarUriTemplate, avatarUri, "normal") : string.Empty,
-                    Large = !string.IsNullOrWhiteSpace(avatarUri) ? string.Format(avatarUriTemplate, avatarUri, "large") : string.Empty
+                    Large = !string.IsNullOrWhiteSpace(avatarUri) ? string.Format(avatarUriTemplate, avatarUri, "large") : string.Empty,
                 }
             };
         }

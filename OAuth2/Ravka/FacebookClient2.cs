@@ -34,6 +34,16 @@ namespace OAuth2.Client.Impl
             var response = JObject.Parse(content);
             userInfo2.Gender = response["gender"].SafeGet(x => x.Value<string>());
             userInfo2.Birthday = response["birthday"].SafeGet(x => x.Value<string>()); // 
+            try
+            {
+                userInfo2.OriginalPicUrl = response["picture"]["data"]["url"].Value<string>();
+            }
+            catch (System.Exception ex)
+            {
+
+                Logger.TryCatch(ex, "ParseUserInfo2");
+            }
+     
             userInfo2.AgeRange = new AgeRange();
             try
             {
