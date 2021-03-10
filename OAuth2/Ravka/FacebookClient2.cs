@@ -24,7 +24,7 @@ namespace OAuth2.Client.Impl
         protected override UserInfo ParseUserInfo(string content)
         {
             // var userInfo = base.ParseUserInfo(content);
-            var userInfo2 = base.ParseUserInfo(content); // = Ravka.Helpers.Fabric.Mappers.Genereric<UserInfo2>(userInfo);
+            var userInfo2 = base.ParseUserInfo(content); // = Ravka.Helpers.Fabric.Mappers.Generic<UserInfo2>(userInfo);
             /*  "Birthday": "06/01/1978",
   "AgeRange": {
     "Min": 21,
