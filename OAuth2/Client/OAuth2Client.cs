@@ -103,6 +103,7 @@ namespace OAuth2.Client
                     client_id = Configuration.ClientId,
                     redirect_uri = Configuration.RedirectUri,
                     scope = Configuration.Scope,
+                    // scope = "[" + + "]", // launch temp
                     state
                 });
             }

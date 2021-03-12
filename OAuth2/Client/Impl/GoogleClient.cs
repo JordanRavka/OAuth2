@@ -30,7 +30,8 @@ namespace OAuth2.Client.Impl
                 return new Endpoint
                 {
                     BaseUri = "https://accounts.google.com",
-                    Resource = "/o/oauth2/v2/auth" // "/o/oauth2/auth"
+                    Resource = "/o/oauth2/auth"
+                   // Resource = "/o/oauth2/v2/auth" // "/o/oauth2/auth"
                 };
             }
         }
@@ -45,7 +46,8 @@ namespace OAuth2.Client.Impl
                 return new Endpoint
                 {
                     BaseUri = "https://accounts.google.com",
-                    Resource = "/o/oauth2/v4/token" //  "/o/oauth2/token"
+                    Resource = "/o/oauth2/token"
+                  //  Resource = "/o/oauth2/v4/token" 
                 };
             }
         }
@@ -57,10 +59,11 @@ namespace OAuth2.Client.Impl
         {
             get
             {
+                var usePeopleApi = false;
                 return new Endpoint
                 {
                     BaseUri = "https://www.googleapis.com",
-                    Resource = "/oauth2/v1/userinfo"
+                    Resource = usePeopleApi ? "/oauth2/v1/user" : "/oauth2/v1/userinfo"
                 };
             }
         }

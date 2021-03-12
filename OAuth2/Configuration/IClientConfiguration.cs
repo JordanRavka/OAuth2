@@ -33,7 +33,9 @@ namespace OAuth2.Configuration
         /// <summary>
         /// Scope - contains set of permissions which user should give to your application.
         /// </summary>
-        string Scope { get; set; }
+        string Scope { get;  set; }
+
+        // string Scopes { get; set; }
 
         /// <summary>
         /// Redirect URI (URI user will be redirected to 
